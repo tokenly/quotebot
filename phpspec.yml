@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Quotebot
+        psr4_prefix: Quotebot
+        src_path: app
