@@ -144,17 +144,17 @@ class AggregateQuoteValuesTest extends TestCase {
 
 
         $e = $test_data['expected'];
-        PHPUnit::assertEquals($s($e['low'][0]), intval($aggregate_quote['bid_low']), "Unexpected value for bid_low.");
-        PHPUnit::assertEquals($s($e['avg'][0]), intval($aggregate_quote['bid_avg']), "Unexpected value for bid_avg.");
-        PHPUnit::assertEquals($s($e['high'][0]), intval($aggregate_quote['bid_high']), "Unexpected value for bid_high.");
+        PHPUnit::assertEquals($s($e['low'][0]), round($aggregate_quote['bid_low']), "Unexpected value for bid_low.");
+        PHPUnit::assertEquals($s($e['avg'][0]), round($aggregate_quote['bid_avg']), "Unexpected value for bid_avg.");
+        PHPUnit::assertEquals($s($e['high'][0]), round($aggregate_quote['bid_high']), "Unexpected value for bid_high.");
 
-        PHPUnit::assertEquals($s($e['low'][1]), intval($aggregate_quote['last_low']), "Unexpected value for last_low.");
-        PHPUnit::assertEquals($s($e['avg'][1]), intval($aggregate_quote['last_avg']), "Unexpected value for last_avg.");
-        PHPUnit::assertEquals($s($e['high'][1]), intval($aggregate_quote['last_high']), "Unexpected value for last_high.");
+        PHPUnit::assertEquals($s($e['low'][1]), round($aggregate_quote['last_low']), "Unexpected value for last_low.");
+        PHPUnit::assertEquals($s($e['avg'][1]), round($aggregate_quote['last_avg']), "Unexpected value for last_avg.");
+        PHPUnit::assertEquals($s($e['high'][1]), round($aggregate_quote['last_high']), "Unexpected value for last_high.");
 
-        PHPUnit::assertEquals($s($e['low'][2]), intval($aggregate_quote['ask_low']), "Unexpected value for ask_low.");
-        PHPUnit::assertEquals($s($e['avg'][2]), intval($aggregate_quote['ask_avg']), "Unexpected value for ask_avg.");
-        PHPUnit::assertEquals($s($e['high'][2]), intval($aggregate_quote['ask_high']), "Unexpected value for ask_high.");
+        PHPUnit::assertEquals($s($e['low'][2]), round($aggregate_quote['ask_low']), "Unexpected value for ask_low.");
+        PHPUnit::assertEquals($s($e['avg'][2]), round($aggregate_quote['ask_avg']), "Unexpected value for ask_avg.");
+        PHPUnit::assertEquals($s($e['high'][2]), round($aggregate_quote['ask_high']), "Unexpected value for ask_high.");
     
         PHPUnit::assertEquals($t + $test_data['select']['startTime'], DateHelper::toTimestamp($aggregate_quote['start_timestamp']));
         PHPUnit::assertEquals($t + $test_data['select']['endTime'], DateHelper::toTimestamp($aggregate_quote['end_timestamp']));
