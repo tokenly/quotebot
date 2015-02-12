@@ -1,4 +1,6 @@
-<?php namespace Quotebot;
+<?php
+
+namespace Quotebot\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

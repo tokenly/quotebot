@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "5.0.*"
+		"laravel/framework": "5.0.*",
+		"tokenly/crypto-quote-client": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
@@ -21,7 +22,8 @@
 	},
 	"autoload-dev": {
 		"classmap": [
-			"tests/TestCase.php"
+            "tests/testlib/",
+			"tests/tests/TestCase.php"
 		]
 	},
 	"scripts": {
@@ -40,5 +42,6 @@
 	},
 	"config": {
 		"preferred-install": "dist"
-	}
+	},
+	"minimum-stability": "dev"
 }

@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => env('DEFAULT_TIMEZONE', 'UTC'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
 	|
 	*/
 
-	'log' => 'daily',
+	'log' => 'single',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -144,6 +144,8 @@ return [
 		'Quotebot\Providers\ConfigServiceProvider',
 		'Quotebot\Providers\EventServiceProvider',
 		'Quotebot\Providers\RouteServiceProvider',
+
+		'Quotebot\Providers\EventLog\EventLogServiceProvider',
 
 	],
 
