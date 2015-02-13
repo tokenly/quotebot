@@ -49,7 +49,7 @@
 		]
 	},
 	"config": {
-		"preferred-install": "dist"
+		"preferred-install": "auto"
 	},
 	"minimum-stability": "dev"
 }
