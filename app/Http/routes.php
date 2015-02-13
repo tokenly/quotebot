@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'PublicViewController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('/api/v1/quote/all', 'API\\QuoteController@index');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+// Route::get('home', 'HomeController@index');
+
+// Route::controllers([
+// 	'auth' => 'Auth\AuthController',
+// 	'password' => 'Auth\PasswordController',
+// ]);

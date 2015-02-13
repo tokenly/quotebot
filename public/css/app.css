@@ -6231,3 +6231,129 @@ label,
 .checkbox label {
   font-weight: 300;
 }
+.price-panel .price {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.price-panel .currency {
+  margin-left: 14px;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 31px;
+  top: 80px;
+}
+.price-panel .satoshis {
+  font-size: 0.8rem;
+  position: absolute;
+  left: 32px;
+  top: 88px;
+}
+.price-panel .panel-body {
+  overflow: hidden;
+}
+.direction-up,
+.direction-up2 {
+  -webkit-animation-name: slideup;
+          animation-name: slideup;
+  -webkit-animation-duration: 0.55s;
+          animation-duration: 0.55s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+.direction-up2 {
+  -webkit-animation-name: slideup2;
+          animation-name: slideup2;
+}
+.direction-down,
+.direction-down2 {
+  -webkit-animation-name: slidedown;
+          animation-name: slidedown;
+  -webkit-animation-duration: 0.55s;
+          animation-duration: 0.55s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+.direction-down2 {
+  -webkit-animation-name: slidedown2;
+          animation-name: slidedown2;
+}
+@-webkit-keyframes slideup {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@keyframes slideup {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@-webkit-keyframes slideup2 {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@keyframes slideup2 {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@-webkit-keyframes slidedown {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@keyframes slidedown {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@-webkit-keyframes slidedow2 {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@keyframes slidedow2 {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}

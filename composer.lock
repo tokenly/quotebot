@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "71e0b830d58f249190d9f448ec5eac15",
+    "hash": "c881ef9a44889b09e93a36d58004d964",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -987,6 +987,53 @@
             "time": "2015-01-11 23:07:46"
         },
         {
+            "name": "nc/faye-client",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nchaulet/faye-client.git",
+                "reference": "96859ea7717435e8f454e918726b15c98f41ba5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nchaulet/faye-client/zipball/96859ea7717435e8f454e918726b15c98f41ba5d",
+                "reference": "96859ea7717435e8f454e918726b15c98f41ba5d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "atoum/atoum": "dev-master",
+                "guzzle/guzzle": "~3.0"
+            },
+            "suggest": {
+                "guzzle/guzzle": "~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Nc\\FayeClient": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nchaulet",
+                    "email": "n.chaulet@gmail.com"
+                }
+            ],
+            "description": "Php client for interacting with faye server",
+            "keywords": [
+                "faye",
+                "websocket"
+            ],
+            "time": "2014-06-10 06:11:09"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "1.13.0",
             "source": {
@@ -1228,6 +1275,72 @@
             ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
             "time": "2014-12-30 13:32:42"
+        },
+        {
+            "name": "rhumsaa/uuid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid.git",
+                "reference": "7bf3ac017511b6036116d97276021f0d7398812b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/7bf3ac017511b6036116d97276021f0d7398812b",
+                "reference": "7bf3ac017511b6036116d97276021f0d7398812b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "doctrine/dbal": ">=2.3",
+                "moontoast/math": "~1.1",
+                "phpunit/phpunit": "~4.1",
+                "satooshi/php-coveralls": "~0.6",
+                "symfony/console": "~2.3"
+            },
+            "suggest": {
+                "doctrine/dbal": "Allow the use of a UUID as doctrine field type.",
+                "moontoast/math": "Support for converting UUID to 128-bit integer (in string form).",
+                "symfony/console": "Support for use of the bin/uuid command line tool."
+            },
+            "bin": [
+                "bin/uuid"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rhumsaa\\Uuid\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Huizendveld",
+                    "email": "marijn.huizendveld@gmail.com"
+                },
+                {
+                    "name": "Ben Ramsey",
+                    "homepage": "http://benramsey.com"
+                }
+            ],
+            "description": "A PHP 5.3+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
+            "homepage": "https://github.com/ramsey/uuid",
+            "keywords": [
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "time": "2015-01-07 14:46:10"
         },
         {
             "name": "satooshi/php-coveralls",
@@ -2271,6 +2384,213 @@
             ],
             "description": "A library for obtaining cryptocurrency quotes",
             "time": "2015-02-05 19:28:03"
+        },
+        {
+            "name": "tokenly/hmac-auth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tokenly/hmac-auth.git",
+                "reference": "cd48913038b735b0ebe2d04d535a0e01db6d131d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tokenly/hmac-auth/zipball/cd48913038b735b0ebe2d04d535a0e01db6d131d",
+                "reference": "cd48913038b735b0ebe2d04d535a0e01db6d131d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~5",
+                "php": ">=5.4.0",
+                "symfony/http-foundation": "~2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Tokenly\\HmacAuth": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "authors": [
+                {
+                    "name": "Devon Weller",
+                    "email": "dweller@devonweller.com",
+                    "homepage": "http://devonweller.com"
+                }
+            ],
+            "description": "A library",
+            "time": "2015-02-12 22:40:09"
+        },
+        {
+            "name": "tokenly/laravel-api-provider",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tokenly/laravel-api-provider.git",
+                "reference": "9de677e50a65c374a601e53f5752d4a02cc55566"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tokenly/laravel-api-provider/zipball/9de677e50a65c374a601e53f5752d4a02cc55566",
+                "reference": "9de677e50a65c374a601e53f5752d4a02cc55566",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "rhumsaa/uuid": "~2.",
+                "tokenly/hmac-auth": "dev-master",
+                "tokenly/laravel-event-log": "dev-master",
+                "tokenly/token-generator": "dev-master"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Tokenly\\LaravelApiProvider": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Devon Weller",
+                    "email": "devon@tokenly.co",
+                    "homepage": "http://tokenly.co"
+                }
+            ],
+            "description": "An API service provider for Laravel",
+            "time": "2015-02-13 02:23:42"
+        },
+        {
+            "name": "tokenly/laravel-event-log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tokenly/laravel-event-log.git",
+                "reference": "395a5110509cca5a5a29277f70d6b9a24b3aaa3d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tokenly/laravel-event-log/zipball/395a5110509cca5a5a29277f70d6b9a24b3aaa3d",
+                "reference": "395a5110509cca5a5a29277f70d6b9a24b3aaa3d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Tokenly\\LaravelEventLog": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Devon Weller",
+                    "email": "devon@tokenly.co",
+                    "homepage": "http://tokenly.co"
+                }
+            ],
+            "description": "An event logger for Laravel.",
+            "time": "2015-02-13 02:25:53"
+        },
+        {
+            "name": "tokenly/pusher-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tokenly/pusher-client.git",
+                "reference": "8cd40f570f9f162327066dfce1ee0ccbf531e692"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tokenly/pusher-client/zipball/8cd40f570f9f162327066dfce1ee0ccbf531e692",
+                "reference": "8cd40f570f9f162327066dfce1ee0ccbf531e692",
+                "shasum": ""
+            },
+            "require": {
+                "nc/faye-client": "~1.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Tokenly\\PusherClient": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Devon Weller",
+                    "email": "dweller@devonweller.com",
+                    "homepage": "http://devonweller.com"
+                }
+            ],
+            "description": "A library",
+            "time": "2015-02-02 13:32:00"
+        },
+        {
+            "name": "tokenly/token-generator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tokenly/token-generator.git",
+                "reference": "f3422f54e82d6e1d24b7dec46135db4e845f63ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tokenly/token-generator/zipball/f3422f54e82d6e1d24b7dec46135db4e845f63ee",
+                "reference": "f3422f54e82d6e1d24b7dec46135db4e845f63ee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Tokenly\\TokenGenerator": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Devon Weller",
+                    "email": "dweller@devonweller.com",
+                    "homepage": "http://devonweller.com"
+                }
+            ],
+            "description": "A library to generate random strings",
+            "time": "2014-12-03 03:55:02"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -3344,7 +3664,12 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "tokenly/crypto-quote-client": 20,
-        "tokenly/bitcoin-currency-lib": 20
+        "tokenly/bitcoin-currency-lib": 20,
+        "tokenly/hmac-auth": 20,
+        "tokenly/laravel-api-provider": 20,
+        "tokenly/laravel-event-log": 20,
+        "tokenly/token-generator": 20,
+        "tokenly/pusher-client": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

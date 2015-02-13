@@ -5,9 +5,9 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Queue\InteractsWithQueue;
 use Quotebot\Commands\LoadQuote;
 use Quotebot\Events\QuoteWasLoaded;
-use Quotebot\Providers\EventLog\Facade\EventLog;
 use Quotebot\Repositories\RawQuoteRepository;
 use Tokenly\CryptoQuoteClient\Client;
+use Tokenly\LaravelEventLog\Facade\EventLog;
 
 class LoadQuoteHandler {
 

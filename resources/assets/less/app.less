@@ -6,3 +6,79 @@
 body, label, .checkbox label {
 	font-weight: 300;
 }
+
+
+// prices
+.price-panel .price {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.price-panel .currency {
+    margin-left: 14px;
+    font-size: 1.2rem;
+    position: absolute;
+    right: 31px;
+    top: 80px;
+}
+
+.price-panel .satoshis {
+    font-size: 0.8rem;
+    position: absolute;
+    left: 32px;
+    top: 88px;
+
+}
+
+.price-panel .panel-body {
+    overflow: hidden;
+}
+
+
+
+.direction-up, .direction-up2 {
+    animation-name: slideup;
+    animation-duration: 0.55s; 
+    animation-timing-function: ease-out;    
+}
+.direction-up2 { animation-name: slideup2; }
+.direction-down, .direction-down2 {
+    animation-name: slidedown;
+    animation-duration: 0.55s; 
+    animation-timing-function: ease-out;    
+}
+.direction-down2 { animation-name: slidedown2; }
+
+@keyframes slideup {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }   
+}
+@keyframes slideup2 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }   
+}
+
+@keyframes slidedown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }   
+}
+@keyframes slidedow2 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }   
+}

@@ -35,6 +35,14 @@ class RawQuoteRepository extends Repository
             ->first();
     }
 
+    public function findOldestQuote($name, $pair) {
+        return 
+            RawQuote::where('name', $name)->where('pair', $pair)
+            ->orderBy('timestamp', 'desc')
+            ->limit(1)
+            ->first();
+    }
+
     public function deleteByTimestampRange($name, $pair, $start_timestamp, $end_timestamp) {
         return RawQuote::where('name', $name)->where('pair', $pair)
             ->where('timestamp', '>=', DateHelper::toTimestamp($start_timestamp))

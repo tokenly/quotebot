@@ -8,7 +8,13 @@
 		"laravel/framework": "5.0.*",
 		"tokenly/crypto-quote-client": "dev-master",
 		"tokenly/bitcoin-currency-lib": "dev-master",
-		"satooshi/php-coveralls": "~0"
+		"satooshi/php-coveralls": "~0",
+		"rhumsaa/uuid": "~2",
+		"tokenly/hmac-auth": "dev-master#cd48913038b735b0ebe2d04d535a0e01db6d131d",
+		"tokenly/laravel-api-provider": "dev-master",
+		"tokenly/laravel-event-log": "dev-master",
+		"tokenly/token-generator": "dev-master",
+		"tokenly/pusher-client": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
@@ -19,7 +25,9 @@
 			"database"
 		],
 		"psr-4": {
-			"Quotebot\\": "app/"
+			"Quotebot\\": "app/",
+			"Tokenly\\LaravelApiProvider\\": "vendor/tokenly/laravel-api-provider/src/Tokenly/LaravelApiProvider/",
+			"Tokenly\\LaravelEventLog\\": "vendor/tokenly/laravel-event-log/src/Tokenly/LaravelEventLog/"
 		}
 	},
 	"autoload-dev": {

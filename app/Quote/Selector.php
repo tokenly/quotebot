@@ -27,6 +27,10 @@ class Selector
         return $this->aggregator->aggregateQuotes($quotes, $start_timestamp, $end_timestamp, $previous_quote);
     }
 
+    public function getLastQuote() {
+        $quotes = $this->raw_quote_repository->findByTimestampRange($name, $pair, $start_timestamp, $end_timestamp)->all();
+    }
+
     // inclusive for the start and end timestamp
     public function findQuotesByTimestampRange($name, $pair, $start_timestamp, $end_timestamp) {
         $start_timestamp = DateHelper::toTimestamp($start_timestamp);
