@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c881ef9a44889b09e93a36d58004d964",
+    "hash": "a307fdde59a3d5500669adb5de72fdb2",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2433,12 +2433,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tokenly/laravel-api-provider.git",
-                "reference": "9de677e50a65c374a601e53f5752d4a02cc55566"
+                "reference": "4ddd07384a1b4aec8901a314995935dd33a42d40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tokenly/laravel-api-provider/zipball/9de677e50a65c374a601e53f5752d4a02cc55566",
-                "reference": "9de677e50a65c374a601e53f5752d4a02cc55566",
+                "url": "https://api.github.com/repos/tokenly/laravel-api-provider/zipball/4ddd07384a1b4aec8901a314995935dd33a42d40",
+                "reference": "4ddd07384a1b4aec8901a314995935dd33a42d40",
                 "shasum": ""
             },
             "require": {
@@ -2477,12 +2477,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tokenly/laravel-event-log.git",
-                "reference": "395a5110509cca5a5a29277f70d6b9a24b3aaa3d"
+                "reference": "96f6355677620c81016b657538b29cbfae09efaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tokenly/laravel-event-log/zipball/395a5110509cca5a5a29277f70d6b9a24b3aaa3d",
-                "reference": "395a5110509cca5a5a29277f70d6b9a24b3aaa3d",
+                "url": "https://api.github.com/repos/tokenly/laravel-event-log/zipball/96f6355677620c81016b657538b29cbfae09efaf",
+                "reference": "96f6355677620c81016b657538b29cbfae09efaf",
                 "shasum": ""
             },
             "require": {
@@ -2508,8 +2508,8 @@
                     "homepage": "http://tokenly.co"
                 }
             ],
-            "description": "An event logger for Laravel.",
-            "time": "2015-02-13 02:25:53"
+            "description": "An event logger provider for Laravel.",
+            "time": "2015-02-13 02:38:04"
         },
         {
             "name": "tokenly/pusher-client",

@@ -10,7 +10,7 @@
 		"tokenly/bitcoin-currency-lib": "dev-master",
 		"satooshi/php-coveralls": "~0",
 		"rhumsaa/uuid": "~2",
-		"tokenly/hmac-auth": "dev-master#cd48913038b735b0ebe2d04d535a0e01db6d131d",
+		"tokenly/hmac-auth": "dev-master",
 		"tokenly/laravel-api-provider": "dev-master",
 		"tokenly/laravel-event-log": "dev-master",
 		"tokenly/token-generator": "dev-master",
@@ -25,9 +25,7 @@
 			"database"
 		],
 		"psr-4": {
-			"Quotebot\\": "app/",
-			"Tokenly\\LaravelApiProvider\\": "vendor/tokenly/laravel-api-provider/src/Tokenly/LaravelApiProvider/",
-			"Tokenly\\LaravelEventLog\\": "vendor/tokenly/laravel-event-log/src/Tokenly/LaravelEventLog/"
+			"Quotebot\\": "app/"
 		}
 	},
 	"autoload-dev": {
