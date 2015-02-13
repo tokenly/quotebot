@@ -103,8 +103,8 @@ view = ()->
             return m("div", {class: "col-md-4"}, [
                 m("div", {class: "panel panel-default price-panel"}, [
                     m("div", {class: "panel-heading"}, [
-                        quote.source,
                         m("div", {class: "currency"}, quote.pair),
+                        m("div", {class: "source"}, quote.source),
                     ]),
                     m("div", {class: "panel-body"}, [
                         m("div", {class: "values direction-#{quote.direction}"}, [

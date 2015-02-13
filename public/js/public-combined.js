@@ -136,9 +136,11 @@
             m("div", {
               "class": "panel-heading"
             }, [
-              quote.source, m("div", {
+              m("div", {
                 "class": "currency"
-              }, quote.pair)
+              }, quote.pair), m("div", {
+                "class": "source"
+              }, quote.source)
             ]), m("div", {
               "class": "panel-body"
             }, [

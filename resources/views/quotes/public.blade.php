@@ -29,6 +29,13 @@
             <div id="Quotes"></div>
         </div>
     </div>
+
+    <div class="row" style="margin-top: 48px;">
+        <div class="col-md-12">
+            <p>Quotes are updated once every minute.</p>
+            <p>Here is the <a href="/api/v1/quote/all?apitoken={{$apiToken}}">JSON Data feed</a>.</p>
+        </div>
+    </div>
 </div>
 
 
