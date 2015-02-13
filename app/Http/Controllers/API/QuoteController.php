@@ -30,27 +30,12 @@ class QuoteController extends Controller {
         
     }
 
-    public function index(Registry $quote_registry, Selector $selector, RawQuoteRepository $raw_quote_repository)
+    public function index(Registry $quote_registry, Selector $selector)
     {
-        $end_timestamp = Carbon::create();
-        $start_timestamp = $end_timestamp->copy()->modify('-24 hours');
-
         $out = ['quotes' => []];
         foreach ($quote_registry->allQuoteTypesIterator() as $name => $pair) {
-            $aggregate_quote = $selector->buildAggregateQuoteByTimestampRange($name, $pair, $start_timestamp, $end_timestamp);
-            $out['quotes'][$name] = array_merge(
-                ['source' => '', 'pair' => '', 'inSatoshis' => null, 'bid' => 0, 'last' => 0, 'ask' => 0], 
-                ($aggregate_quote ? $aggregate_quote->toJSONSerializable() : [])
-            );
-
-            // get the last raw quote
-            $latest_quote = $raw_quote_repository->findOldestQuote($name, $pair);
-            $out['quotes'][$name] = array_merge($out['quotes'][$name], $latest_quote ? $latest_quote->toJSONSerializable() : []);
+            $out['quotes'][] = $selector->getLatestCombinedQuoteAsJSON($name, $pair);
         }
-
-
-        $out['start'] = $start_timestamp->toIso8601String();
-        $out['end'] = $end_timestamp->toIso8601String();
 
         return $out;
     }

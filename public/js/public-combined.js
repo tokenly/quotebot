@@ -34,8 +34,6 @@
     return api;
   })();
 
-  console.log("hello world");
-
   newPusherClient = function() {
     var client;
     client = new window.Faye.Client(window.PUSHER_URL + "/public");
@@ -55,7 +53,6 @@
 
   handleQuoteUpdate = function(newQuote) {
     var existingQuote, found, quotes, updatedQuotes, _i, _len;
-    console.log("handleQuoteUpdate newQuote=", newQuote);
     quotes = vm.quotes();
     found = false;
     updatedQuotes = [];
@@ -98,9 +95,10 @@
           quotes.push({
             source: quote.source,
             pair: quote.pair,
-            bid: quote.bid,
             last: quote.last,
-            ask: quote.ask,
+            lastAvg: quote.lastAvg,
+            lastLow: quote.lastLow,
+            lastHigh: quote.lastHigh,
             time: quote.time,
             inSatoshis: quote.inSatoshis,
             direction: 'up'
@@ -137,16 +135,52 @@
           }, [
             m("div", {
               "class": "panel-heading"
-            }, [quote.source]), m("div", {
+            }, [
+              quote.source, m("div", {
+                "class": "currency"
+              }, quote.pair)
+            ]), m("div", {
               "class": "panel-body"
             }, [
               m("div", {
-                "class": "price direction-" + quote.direction
-              }, quote.last), " ", m("span", {
-                "class": "currency"
-              }, quote.pair), quote.inSatoshis ? m("span", {
-                "class": "satoshis"
-              }, "satoshis") : null
+                "class": "values direction-" + quote.direction
+              }, [
+                m("div", {
+                  "class": "price priceCurrent"
+                }, [
+                  m("div", {
+                    "class": "value"
+                  }, [
+                    m("span", {}, quote.last), m("span", {
+                      "class": "satoshis"
+                    }, quote.inSatoshis ? "satoshis" : '')
+                  ])
+                ]), m("div", {
+                  "class": "price price24"
+                }, [
+                  m("div", {
+                    "class": "value"
+                  }, quote.lastHigh), m("div", {
+                    "class": "priceLabel"
+                  }, "24hr. High")
+                ]), m("div", {
+                  "class": "price price24"
+                }, [
+                  m("div", {
+                    "class": "value"
+                  }, quote.lastLow), m("div", {
+                    "class": "priceLabel"
+                  }, "24hr. Low")
+                ]), m("div", {
+                  "class": "price price24"
+                }, [
+                  m("div", {
+                    "class": "value"
+                  }, quote.lastAvg), m("div", {
+                    "class": "priceLabel"
+                  }, "24hr. Avg")
+                ])
+              ]), " "
             ]), m("div", {
               "class": "panel-footer"
             }, [m("small", {}, window.moment(quote.time).format('h:mm:ss a'))])

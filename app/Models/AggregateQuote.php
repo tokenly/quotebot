@@ -30,6 +30,10 @@ class AggregateQuote extends BaseModel {
     public function setEndTimestampAttribute($end_timestamp) { $this->attributes['end_timestamp'] = DateHelper::toTimestamp($end_timestamp); }
     public function getEndTimestampAttribute() { return Carbon::createFromTimestamp($this->attributes['end_timestamp']); }
 
+    public function getSlug() {
+        return $this['name'].'_'.str_replace(':', '_', $this['pair']);
+    }
+
     public function toJSONSerializable($force_satoshis = false) {
         if ($force_satoshis) {
             $is_satoshis = true;

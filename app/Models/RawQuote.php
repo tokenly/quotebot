@@ -23,6 +23,10 @@ class RawQuote extends BaseModel {
     public function setTimestampAttribute($timestamp) { $this->attributes['timestamp'] = DateHelper::toTimestamp($timestamp); }
     public function getTimestampAttribute() { return Carbon::createFromTimestamp($this->attributes['timestamp']); }
 
+    public function getSlug() {
+        return $this['name'].'_'.str_replace(':', '_', $this['pair']);
+    }
+
     public function toJSONSerializable($force_satoshis = false) {
         if ($force_satoshis) {
             $is_satoshis = true;

@@ -1,4 +1,3 @@
-console.log "hello world"
 
 newPusherClient = ()->
     client = new window.Faye.Client("#{window.PUSHER_URL}/public")
@@ -16,7 +15,7 @@ closePusherChannel = (client)->
     return
 
 handleQuoteUpdate = (newQuote)->
-    console.log "handleQuoteUpdate newQuote=",newQuote
+    # console.log "handleQuoteUpdate newQuote=",newQuote
     quotes = vm.quotes()
     found = false
 
@@ -69,9 +68,10 @@ vm = do ()->
                     quotes.push({
                         source: quote.source
                         pair: quote.pair
-                        bid: quote.bid
                         last: quote.last
-                        ask: quote.ask
+                        lastAvg: quote.lastAvg
+                        lastLow: quote.lastLow
+                        lastHigh: quote.lastHigh
                         time: quote.time
                         inSatoshis: quote.inSatoshis
                         direction: 'up'
@@ -103,13 +103,32 @@ view = ()->
             return m("div", {class: "col-md-4"}, [
                 m("div", {class: "panel panel-default price-panel"}, [
                     m("div", {class: "panel-heading"}, [
-                        quote.source
+                        quote.source,
+                        m("div", {class: "currency"}, quote.pair),
                     ]),
                     m("div", {class: "panel-body"}, [
-                        m("div", {class: "price direction-#{quote.direction}"}, quote.last),
+                        m("div", {class: "values direction-#{quote.direction}"}, [
+                            m("div", {class: "price priceCurrent"}, [
+                                m("div", {class: "value"}, [
+                                    m("span", {}, quote.last),
+                                    m("span", {class: "satoshis"}, if quote.inSatoshis then "satoshis" else ''),
+                                ]),
+                                # m("div", {class: "priceLabel"}, "Last"),
+                            ]),
+                            m("div", {class: "price price24"}, [
+                                m("div", {class: "value"}, quote.lastHigh),
+                                m("div", {class: "priceLabel"}, "24hr. High"),
+                            ]),
+                            m("div", {class: "price price24"}, [
+                                m("div", {class: "value"}, quote.lastLow),
+                                m("div", {class: "priceLabel"}, "24hr. Low"),
+                            ]),
+                            m("div", {class: "price price24"}, [
+                                m("div", {class: "value"}, quote.lastAvg),
+                                m("div", {class: "priceLabel"}, "24hr. Avg"),
+                            ]),
+                        ]),
                         " ",
-                        m("span", {class: "currency"}, quote.pair),
-                        if quote.inSatoshis then m("span", {class: "satoshis"}, "satoshis") else null,
                     ]),
                     m("div", {class: "panel-footer"}, [
                         m("small", {}, window.moment(quote.time).format('h:mm:ss a')),

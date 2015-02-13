@@ -6232,17 +6232,43 @@ label,
   font-weight: 300;
 }
 .price-panel .price {
-  font-size: 2.2rem;
+  float: left;
+  padding-right: 10px;
+  width: 33%;
+}
+.price-panel .price .value {
+  font-size: 1.7rem;
   font-weight: bold;
+  position: relative;
+}
+.price-panel .price .priceLabel {
+  font-size: 0.8rem;
+}
+.price-panel .priceCurrent {
+  width: 100%;
+  margin-top: 7px;
+  margin-bottom: 12px;
+}
+.price-panel .priceCurrent .value {
+  font-size: 4rem;
+  line-height: 4rem;
+}
+.price-panel .priceCurrent .priceLabel {
+  font-size: 1.2rem;
 }
 .price-panel .currency {
   margin-left: 14px;
   font-size: 1.2rem;
   position: absolute;
-  right: 31px;
-  top: 80px;
+  right: 30px;
+  top: 15px;
 }
 .price-panel .satoshis {
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin-left: 8px;
+}
+.price-panel .type {
   font-size: 0.8rem;
   position: absolute;
   left: 32px;
@@ -6250,6 +6276,9 @@ label,
 }
 .price-panel .panel-body {
   overflow: hidden;
+}
+.price-panel .panel-footer {
+  text-align: right;
 }
 .direction-up,
 .direction-up2 {

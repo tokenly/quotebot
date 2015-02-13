@@ -2,6 +2,9 @@
 
 namespace Quotebot\Quote;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Quotebot\Models\AggregateQuote;
 use Quotebot\Models\RawQuote;
 use Quotebot\Quote\Aggregator;
@@ -19,6 +22,40 @@ class Selector
         $this->aggregate_quote_repository = $aggregate_quote_repository;
         $this->raw_quote_repository       = $raw_quote_repository;
         $this->aggregator                 = $aggregator;
+    }
+
+    public function buildCacheKey($name, $pair) {
+        return $name.'_'.str_replace(':', '_', $pair);
+    }
+
+    public function clearLatestCombinedQuote($name, $pair) {
+        Cache::forget($this->buildCacheKey($name, $pair));
+    }
+
+    public function getLatestCombinedQuoteAsJSON($name, $pair) {
+        $minutes = 1;
+        Log::debug("getLatestCombinedQuoteAsJSON: $name,$pair");
+        return Cache::remember($this->buildCacheKey($name, $pair), $minutes, function() use ($name, $pair) {
+            Log::debug("buildling LIVE quote: $name,$pair");
+            return $this->buildCombinedQuoteAsJSON($name, $pair);
+        });
+    }
+
+    public function buildCombinedQuoteAsJSON($name, $pair) {
+        $end_timestamp = Carbon::create();
+        $start_timestamp = $end_timestamp->copy()->modify('-24 hours');
+
+        $aggregate_quote = $this->buildAggregateQuoteByTimestampRange($name, $pair, $start_timestamp, $end_timestamp);
+        $combined_quote = array_merge(
+            ['source' => '', 'pair' => '', 'inSatoshis' => null, 'bid' => 0, 'last' => 0, 'ask' => 0], 
+            ($aggregate_quote ? $aggregate_quote->toJSONSerializable() : [])
+        );
+
+        // get the last raw quote
+        $latest_quote = $this->raw_quote_repository->findOldestQuote($name, $pair);
+        $combined_quote = array_merge($combined_quote, $latest_quote ? $latest_quote->toJSONSerializable() : []);
+
+        return $combined_quote;
     }
 
     public function buildAggregateQuoteByTimestampRange($name, $pair, $start_timestamp, $end_timestamp) {

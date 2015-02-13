@@ -4,22 +4,29 @@ namespace Quotebot\Handlers\Events;
 
 use Illuminate\Support\Facades\Log;
 use Quotebot\Events\Event;
+use Quotebot\Quote\Selector;
 use Tokenly\PusherClient\Client;
 
 
 class QuoteWasLoadedHandler {
 
-    function __construct(Client $pusher_client) {
+    function __construct(Client $pusher_client, Selector $selector) {
         $this->pusher_client = $pusher_client;
+        $this->selector = $selector;
     }
 
 
     public function sendQuoteEventToPusher(Event $event) {
         $raw_quote = $event->raw_quote;
 
-        $channel = '/quotebot_quote_'.$raw_quote['name'].'_'.str_replace(':', '_', $raw_quote['pair']);
+        // wipe the latest quote from the cache
+        $this->selector->clearLatestCombinedQuote($raw_quote['name'], $raw_quote['pair']);
+
+        // build a new one
+        $data = $this->selector->getLatestCombinedQuoteAsJSON($raw_quote['name'], $raw_quote['pair']);
+
+        $channel = '/quotebot_quote_'.$raw_quote->getSlug();
         Log::debug("sending quote to channel $channel");
-        $data = $raw_quote->toJSONSerializable();
         $this->pusher_client->send($channel, $data);
     }
 
