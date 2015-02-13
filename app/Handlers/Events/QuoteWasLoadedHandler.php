@@ -20,7 +20,6 @@ class QuoteWasLoadedHandler {
         $channel = '/quotebot_quote_'.$raw_quote['name'].'_'.str_replace(':', '_', $raw_quote['pair']);
         Log::debug("sending quote to channel $channel");
         $data = $raw_quote->toJSONSerializable();
-        $data['last'] = $data['last'] + rand(20,100);
         $this->pusher_client->send($channel, $data);
     }
 
