@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a307fdde59a3d5500669adb5de72fdb2",
+    "hash": "7228aecbee4becc9cd254eb26626f089",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2433,12 +2433,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tokenly/laravel-api-provider.git",
-                "reference": "4ddd07384a1b4aec8901a314995935dd33a42d40"
+                "reference": "769b235078cc7fbbe2e0b14043d3306b543f6868"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tokenly/laravel-api-provider/zipball/4ddd07384a1b4aec8901a314995935dd33a42d40",
-                "reference": "4ddd07384a1b4aec8901a314995935dd33a42d40",
+                "url": "https://api.github.com/repos/tokenly/laravel-api-provider/zipball/769b235078cc7fbbe2e0b14043d3306b543f6868",
+                "reference": "769b235078cc7fbbe2e0b14043d3306b543f6868",
                 "shasum": ""
             },
             "require": {
@@ -2469,7 +2469,7 @@
                 }
             ],
             "description": "An API service provider for Laravel",
-            "time": "2015-02-13 02:23:42"
+            "time": "2015-02-14 13:38:30"
         },
         {
             "name": "tokenly/laravel-event-log",

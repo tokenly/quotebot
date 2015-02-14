@@ -16,10 +16,6 @@ class Kernel extends ConsoleKernel {
         'Quotebot\Console\Commands\LoadQuote',
         'Quotebot\Console\Commands\FetchQuote',
         'Quotebot\Console\Commands\AggregateQuotes',
-
-        // api provider commands
-        'Tokenly\LaravelApiProvider\Commands\NewAPIUserCommand',
-        'Tokenly\LaravelApiProvider\Commands\ListAPIUsersCommand',
     ];
 
     /**
