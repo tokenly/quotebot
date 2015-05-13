@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "03cb71c50eca9717ddccfa0309db3d3b",
@@ -2422,12 +2422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tokenly/laravel-api-provider.git",
-                "reference": "c86d4a9e5ba7a078014e716f85ef82aa79f016f0"
+                "reference": "7030b2dd1ff1b1a09a9f77ddd02faf66af5c6606"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tokenly/laravel-api-provider/zipball/c86d4a9e5ba7a078014e716f85ef82aa79f016f0",
-                "reference": "c86d4a9e5ba7a078014e716f85ef82aa79f016f0",
+                "url": "https://api.github.com/repos/tokenly/laravel-api-provider/zipball/7030b2dd1ff1b1a09a9f77ddd02faf66af5c6606",
+                "reference": "7030b2dd1ff1b1a09a9f77ddd02faf66af5c6606",
                 "shasum": ""
             },
             "require": {
@@ -2458,7 +2458,7 @@
                 }
             ],
             "description": "An API service provider for Laravel",
-            "time": "2015-02-14 17:17:28"
+            "time": "2015-04-09 20:46:44"
         },
         {
             "name": "tokenly/laravel-event-log",
@@ -2466,12 +2466,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tokenly/laravel-event-log.git",
-                "reference": "96f6355677620c81016b657538b29cbfae09efaf"
+                "reference": "2b8f4e2c3c98f49e72465cd4a9eee5195ce87cb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tokenly/laravel-event-log/zipball/96f6355677620c81016b657538b29cbfae09efaf",
-                "reference": "96f6355677620c81016b657538b29cbfae09efaf",
+                "url": "https://api.github.com/repos/tokenly/laravel-event-log/zipball/2b8f4e2c3c98f49e72465cd4a9eee5195ce87cb3",
+                "reference": "2b8f4e2c3c98f49e72465cd4a9eee5195ce87cb3",
                 "shasum": ""
             },
             "require": {
@@ -2498,7 +2498,7 @@
                 }
             ],
             "description": "An event logger provider for Laravel.",
-            "time": "2015-02-13 02:38:04"
+            "time": "2015-04-25 13:03:59"
         },
         {
             "name": "tokenly/pusher-client",
