@@ -145,6 +145,8 @@ return [
         'Quotebot\Providers\EventServiceProvider',
         'Quotebot\Providers\RouteServiceProvider',
 
+        'Quotebot\Providers\Monitoring\MonitoringServiceProvider',
+
 
         /*
          * Vendor Service Providers...
@@ -152,6 +154,7 @@ return [
         'Tokenly\LaravelEventLog\EventLogServiceProvider',
         'Tokenly\LaravelApiProvider\APIServiceProvider',
         'Tokenly\PusherClient\Provider\PusherClientServiceProvider',
+        'Tokenly\ConsulHealthDaemon\ServiceProvider\ConsulHealthDaemonServiceProvider',
 
     ],
 

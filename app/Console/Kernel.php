@@ -16,6 +16,9 @@ class Kernel extends ConsoleKernel {
         'Quotebot\Console\Commands\LoadQuote',
         'Quotebot\Console\Commands\FetchQuote',
         'Quotebot\Console\Commands\AggregateQuotes',
+
+        // vendor commands
+        'Tokenly\ConsulHealthDaemon\Console\ConsulHealthMonitorCommand',
     ];
 
     /**
