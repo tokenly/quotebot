@@ -4,6 +4,7 @@ namespace Quotebot\Http\Controllers\API;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Quotebot\Http\Controllers\Controller;
 use Quotebot\Http\Requests;
 use Quotebot\Quote\Registry;
@@ -37,7 +38,8 @@ class QuoteController extends Controller {
             $out['quotes'][] = $selector->getLatestCombinedQuoteAsJSON($name, $pair);
         }
 
-        return $out;
+        $response = new Response($out, 200, ['Access-Control-Allow-Origin' => '*']);
+        return $response;
     }
 
 
