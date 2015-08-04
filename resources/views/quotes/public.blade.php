@@ -48,6 +48,7 @@
     <!-- deps -->
     <script src="/bower_components/mithril/mithril.min.js"></script>
     <script src="/bower_components/moment/min/moment.min.js"></script>
+    <script src="/bower_components/numeraljs/min/numeral.min.js"></script>
 
     <!-- pusher -->
     <script>window.PUSHER_URL = '{{$pusherUrl}}';</script>

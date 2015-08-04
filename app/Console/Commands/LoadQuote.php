@@ -32,12 +32,11 @@ class LoadQuote extends Command {
     public function fire()
     {
         $driver = $this->input->getArgument('driver');
-        $base = $this->input->getArgument('base');
-        $target = $this->input->getArgument('target');
+        $pairs = $this->input->getArgument('pairs');
 
-        $this->comment("Loading $base:$target from $driver");
+        $this->comment("Loading ".json_encode($pairs, 192)." from $driver");
 
-        $this->dispatch(new LoadQuoteCommand($driver, $base, $target));
+        $this->dispatch(new LoadQuoteCommand($driver, $pairs));
 
         $this->comment("done");
     }
@@ -51,8 +50,7 @@ class LoadQuote extends Command {
     {
         return [
             ['driver', InputArgument::OPTIONAL, 'The driver name.', 'bitcoinAverage'],
-            ['base', InputArgument::OPTIONAL, 'The base currency.', 'USD'],
-            ['target', InputArgument::OPTIONAL, 'The target currency.', 'BTC'],
+            ['pairs', InputArgument::IS_ARRAY, 'Currency pairs.', ['USD:BTC']],
         ];
     }
 

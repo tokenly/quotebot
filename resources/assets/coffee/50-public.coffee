@@ -97,9 +97,37 @@ ctrl = ()->
 
     return
 
+SATOSHI = 100000000
+formatSatoshisToBTC = (value) ->
+    if not value? or isNaN(value) then return ''
+    return window.numeral(value / SATOSHI).format('0,0.00000000')
+
+formatCurrency = (value) ->
+    if not value? or isNaN(value) then return ''
+    return window.numeral(value).format('0,0.00')
+
+formatInteger = (value) ->
+    if not value? or isNaN(value) then return ''
+    return window.numeral(value).format('0,0')
+
 view = ()->
+
     return m("div", {style:{marginTop: '28px'}}, [
         m("div", {class: "row"}, vm.quotes().map((quote)->
+            inSatoshis = quote.inSatoshis
+            if quote.last >= 10000
+                if quote.inSatoshis
+                    fmt = formatSatoshisToBTC
+                    inSatoshis = false
+                else
+                    fmt = formatCurrency
+            else
+                if quote.inSatoshis
+                    fmt = formatInteger
+                else
+                    # assume USD
+                    fmt = formatCurrency
+
             return m("div", {class: "col-md-4"}, [
                 m("div", {class: "panel panel-default price-panel"}, [
                     m("div", {class: "panel-heading"}, [
@@ -110,21 +138,21 @@ view = ()->
                         m("div", {class: "values direction-#{quote.direction}"}, [
                             m("div", {class: "price priceCurrent"}, [
                                 m("div", {class: "value"}, [
-                                    m("span", {}, quote.last),
-                                    m("span", {class: "satoshis"}, if quote.inSatoshis then "satoshis" else ''),
+                                    m("span", {}, fmt(quote.last)),
+                                    m("span", {class: "satoshis"}, if inSatoshis then "satoshis" else 'BTC'),
                                 ]),
                                 # m("div", {class: "priceLabel"}, "Last"),
                             ]),
                             m("div", {class: "price price24"}, [
-                                m("div", {class: "value"}, quote.lastHigh),
+                                m("div", {class: "value"}, fmt(quote.lastHigh)),
                                 m("div", {class: "priceLabel"}, "24hr. High"),
                             ]),
                             m("div", {class: "price price24"}, [
-                                m("div", {class: "value"}, quote.lastLow),
+                                m("div", {class: "value"}, fmt(quote.lastLow)),
                                 m("div", {class: "priceLabel"}, "24hr. Low"),
                             ]),
                             m("div", {class: "price price24"}, [
-                                m("div", {class: "value"}, quote.lastAvg),
+                                m("div", {class: "value"}, fmt(quote.lastAvg)),
                                 m("div", {class: "priceLabel"}, "24hr. Avg"),
                             ]),
                         ]),
@@ -140,34 +168,5 @@ view = ()->
 
 m.module(document.getElementById('Quotes'), {controller: ctrl, view: view})
 
-###
- <div class="row">
-     <div class="col-md-4">
-         <div class="panel panel-default price-panel">
-             <div class="panel-heading">bitcoinAverage</div>
-             <div class="panel-body">
-                 <span class="price">foo</span> <span class="currency">BTC/USD</span>
-             </div>
-             <div class="panel-footer"><small>time here</small></div>
-         </div>
-     </div>
-     <div class="col-md-4">
-         <div class="panel panel-default price-panel">
-             <div class="panel-heading">bitcoinAverage</div>
-             <div class="panel-body">
-                 <span class="price">foo</span> <span class="currency">BTC/USD</span>
-             </div>
-             <div class="panel-footer"><small>time here</small></div>
-         </div>
-     </div>
-     <div class="col-md-4">
-         <div class="panel panel-default price-panel">
-             <div class="panel-heading">bitcoinAverage</div>
-             <div class="panel-body">
-                 <span class="price">foo</span> <span class="currency">BTC/USD</span>
-             </div>
-             <div class="panel-footer"><small>time here</small></div>
-         </div>
-     </div>
- </div>
-###
+
+

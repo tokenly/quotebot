@@ -1,5 +1,5 @@
 (function() {
-  var api, closePusherChannel, ctrl, handleQuoteUpdate, newPusherClient, subscribeToPusherChannel, view, vm;
+  var SATOSHI, api, closePusherChannel, ctrl, formatCurrency, formatInteger, formatSatoshisToBTC, handleQuoteUpdate, newPusherClient, subscribeToPusherChannel, view, vm;
 
   api = (function() {
     var signPublicRequest;
@@ -118,6 +118,29 @@
     vm.init();
   };
 
+  SATOSHI = 100000000;
+
+  formatSatoshisToBTC = function(value) {
+    if ((value == null) || isNaN(value)) {
+      return '';
+    }
+    return window.numeral(value / SATOSHI).format('0,0.00000000');
+  };
+
+  formatCurrency = function(value) {
+    if ((value == null) || isNaN(value)) {
+      return '';
+    }
+    return window.numeral(value).format('0,0.00');
+  };
+
+  formatInteger = function(value) {
+    if ((value == null) || isNaN(value)) {
+      return '';
+    }
+    return window.numeral(value).format('0,0');
+  };
+
   view = function() {
     return m("div", {
       style: {
@@ -127,6 +150,22 @@
       m("div", {
         "class": "row"
       }, vm.quotes().map(function(quote) {
+        var fmt, inSatoshis;
+        inSatoshis = quote.inSatoshis;
+        if (quote.last >= 10000) {
+          if (quote.inSatoshis) {
+            fmt = formatSatoshisToBTC;
+            inSatoshis = false;
+          } else {
+            fmt = formatCurrency;
+          }
+        } else {
+          if (quote.inSatoshis) {
+            fmt = formatInteger;
+          } else {
+            fmt = formatCurrency;
+          }
+        }
         return m("div", {
           "class": "col-md-4"
         }, [
@@ -153,16 +192,16 @@
                   m("div", {
                     "class": "value"
                   }, [
-                    m("span", {}, quote.last), m("span", {
+                    m("span", {}, fmt(quote.last)), m("span", {
                       "class": "satoshis"
-                    }, quote.inSatoshis ? "satoshis" : '')
+                    }, inSatoshis ? "satoshis" : 'BTC')
                   ])
                 ]), m("div", {
                   "class": "price price24"
                 }, [
                   m("div", {
                     "class": "value"
-                  }, quote.lastHigh), m("div", {
+                  }, fmt(quote.lastHigh)), m("div", {
                     "class": "priceLabel"
                   }, "24hr. High")
                 ]), m("div", {
@@ -170,7 +209,7 @@
                 }, [
                   m("div", {
                     "class": "value"
-                  }, quote.lastLow), m("div", {
+                  }, fmt(quote.lastLow)), m("div", {
                     "class": "priceLabel"
                   }, "24hr. Low")
                 ]), m("div", {
@@ -178,7 +217,7 @@
                 }, [
                   m("div", {
                     "class": "value"
-                  }, quote.lastAvg), m("div", {
+                  }, fmt(quote.lastAvg)), m("div", {
                     "class": "priceLabel"
                   }, "24hr. Avg")
                 ])
@@ -196,38 +235,5 @@
     controller: ctrl,
     view: view
   });
-
-
-  /*
-   <div class="row">
-       <div class="col-md-4">
-           <div class="panel panel-default price-panel">
-               <div class="panel-heading">bitcoinAverage</div>
-               <div class="panel-body">
-                   <span class="price">foo</span> <span class="currency">BTC/USD</span>
-               </div>
-               <div class="panel-footer"><small>time here</small></div>
-           </div>
-       </div>
-       <div class="col-md-4">
-           <div class="panel panel-default price-panel">
-               <div class="panel-heading">bitcoinAverage</div>
-               <div class="panel-body">
-                   <span class="price">foo</span> <span class="currency">BTC/USD</span>
-               </div>
-               <div class="panel-footer"><small>time here</small></div>
-           </div>
-       </div>
-       <div class="col-md-4">
-           <div class="panel panel-default price-panel">
-               <div class="panel-heading">bitcoinAverage</div>
-               <div class="panel-body">
-                   <span class="price">foo</span> <span class="currency">BTC/USD</span>
-               </div>
-               <div class="panel-footer"><small>time here</small></div>
-           </div>
-       </div>
-   </div>
-   */
 
 }).call(this);

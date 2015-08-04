@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "mithril": "0.1.29",
-    "moment": "~2.9.0"
+    "moment": "~2.9.0",
+    "numeraljs": "~1.5.3"
   }
 }

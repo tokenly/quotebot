@@ -32,27 +32,42 @@ class LoadQuoteHandler {
     public function handle(LoadQuote $command)
     {
         try {
+            // convert to ['base' => $base, 'target' => $target]
+            $currency_pairs = [];
+            foreach($command->pairs as $pair) {
+                list($base, $target) = explode(':', $pair);
+                $currency_pairs[] = compact('base', 'target');
+            }
+
+
             // get quote
-            $quote = $this->quote_client->getQuote($command->driver, $command->base, $command->target);
+            if (count($currency_pairs) == 1) {
+                extract($currency_pairs[0]); // <-- extracts to $base and $target variables
+                $quote = $this->quote_client->getQuote($command->driver, $base, $target);
+                $quotes = [$quote];
 
-            // store in DB
-            $create_vars = [
-                'name'      => $quote['name'],
-                'pair'      => $quote['base'].':'.$quote['target'],
-                'ask'       => $quote['askSat'],
-                'bid'       => $quote['bidSat'],
-                'last'      => $quote['lastSat'],
-                'timestamp' => $quote['timestamp'],
-            ];
-            $raw_quote = $this->raw_quote_repository->create($create_vars);
+            } else {
+                $quotes = $this->quote_client->getQuotes($command->driver, $currency_pairs);
+            }
 
-            // log event
-            EventLog::log('quote.loaded', $create_vars);
+            foreach($quotes as $quote) {
+                // store quote in DB
+                $create_vars = [
+                    'name'      => $quote['name'],
+                    'pair'      => $quote['base'].':'.$quote['target'],
+                    'ask'       => $quote['askSat'],
+                    'bid'       => $quote['bidSat'],
+                    'last'      => $quote['lastSat'],
+                    'timestamp' => $quote['timestamp'],
+                ];
+                $raw_quote = $this->raw_quote_repository->create($create_vars);
 
-            // fire event
-            $this->events->fire(new QuoteWasLoaded($raw_quote));
+                // log event
+                EventLog::log('quote.loaded', $create_vars);
 
-            EventLog::log('quote.loaded', $create_vars);
+                // fire event
+                $this->events->fire(new QuoteWasLoaded($raw_quote));
+            }
 
         } catch (Exception $e) {
             EventLog::logError('loadquote.failed', $e, ['command' => (array)$command]);

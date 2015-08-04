@@ -6237,7 +6237,7 @@ label,
   width: 33%;
 }
 .price-panel .price .value {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   font-weight: bold;
   position: relative;
 }
@@ -6249,7 +6249,7 @@ label,
   margin-top: 7px;
 }
 .price-panel .priceCurrent .value {
-  font-size: 6rem;
+  font-size: 4.7rem;
   line-height: 6rem;
 }
 .price-panel .priceCurrent .priceLabel {

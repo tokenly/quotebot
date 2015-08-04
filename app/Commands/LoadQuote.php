@@ -9,11 +9,10 @@ class LoadQuote extends Command {
      *
      * @return void
      */
-    public function __construct($driver, $base, $target)
+    public function __construct($driver, $pairs)
     {
         $this->driver = $driver;
-        $this->base   = $base;
-        $this->target = $target;
+        $this->pairs  = $pairs;
     }
 
 }
