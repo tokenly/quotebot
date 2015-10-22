@@ -28,6 +28,7 @@ class Registry
             ['poloniex'      , ['BTC:SWARM'],],
             ['poloniex'      , ['BTC:SJCX'],],
             ['poloniex'      , ['BTC:XCP'],],
+            ['poloniex'      , ['BTC:BCY'],],
         ];
     }
 

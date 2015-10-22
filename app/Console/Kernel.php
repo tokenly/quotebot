@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel {
         $load_cron = '* * * * *';
         $schedule->command('quotebot:load bitcoinAverage USD:BTC')->cron($load_cron);
         $schedule->command('quotebot:load bitstamp       USD:BTC')->cron($load_cron);
-        $schedule->command('quotebot:load poloniex       BTC:LTBC BTC:FLDC BTC:GEMZ BTC:SWARM BTC:SJCX BTC:XCP')->cron($load_cron);
+        $schedule->command('quotebot:load poloniex       BTC:LTBC BTC:FLDC BTC:GEMZ BTC:SWARM BTC:SJCX BTC:XCP BTC:BCY')->cron($load_cron);
 
         // 1 minute after the hour
         $aggregate_cron = '1 * * * *';
@@ -44,6 +44,7 @@ class Kernel extends ConsoleKernel {
         $schedule->command('quotebot:aggregate-quotes poloniex       BTC SWARM')->cron($aggregate_cron);
         $schedule->command('quotebot:aggregate-quotes poloniex       BTC SJCX' )->cron($aggregate_cron);
         $schedule->command('quotebot:aggregate-quotes poloniex       BTC XCP'  )->cron($aggregate_cron);
+        $schedule->command('quotebot:aggregate-quotes poloniex       BTC BCY'  )->cron($aggregate_cron);
     }
 
 }
