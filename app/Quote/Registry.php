@@ -22,21 +22,23 @@ class Registry
         return [
             ['bitcoinAverage', ['USD:BTC'], ],
             ['bitstamp'      , ['USD:BTC'], ],
-            ['poloniex'      , ['BTC:LTBC'],],
+            ['poloniex'      , ['BTC:LTBC'], ['BTC:LTBCOIN'],],
             ['poloniex'      , ['BTC:FLDC'],],
             ['poloniex'      , ['BTC:GEMZ'],],
             ['poloniex'      , ['BTC:SWARM'],],
             ['poloniex'      , ['BTC:SJCX'],],
             ['poloniex'      , ['BTC:XCP'],],
-            ['poloniex'      , ['BTC:BCY'],],
+            ['poloniex'      , ['BTC:BCY'], ['BTC:BITCRYSTALS'],],
         ];
     }
 
     public function allQuoteTypesIterator() {
         foreach ($this->allQuoteTypes() as $entry) {
             $name = $entry[0];
-            foreach($entry[1] as $pair) {
-                yield $name => $pair;
+            $aliases = isset($entry[2]) ? $entry[2] : [];
+            foreach($entry[1] as $offset => $pair) {
+                $alias = $aliases ? $aliases[$offset] : null;
+                yield $name => [$pair, $alias];
             }
         }
     }

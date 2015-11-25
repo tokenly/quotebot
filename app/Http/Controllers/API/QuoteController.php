@@ -34,8 +34,14 @@ class QuoteController extends Controller {
     public function index(Registry $quote_registry, Selector $selector)
     {
         $out = ['quotes' => []];
-        foreach ($quote_registry->allQuoteTypesIterator() as $name => $pair) {
-            $out['quotes'][] = $selector->getLatestCombinedQuoteAsJSON($name, $pair);
+        foreach ($quote_registry->allQuoteTypesIterator() as $name => $pair_data) {
+            list($pair, $alias) = $pair_data;
+            $quote = $selector->getLatestCombinedQuoteAsJSON($name, $pair);
+            $out['quotes'][] = $quote;
+
+            if ($alias) {
+                $out['quotes'][] = $this->cloneQuoteToAlias($quote, $alias);
+            }
         }
 
         $response = new Response($out, 200, ['Access-Control-Allow-Origin' => '*']);
@@ -43,4 +49,9 @@ class QuoteController extends Controller {
     }
 
 
+    protected function cloneQuoteToAlias($quote, $alias) {
+        $quote_out = $quote;
+        $quote_out['pair'] = $alias;
+        return $quote_out;
+    }
 }
