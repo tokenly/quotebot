@@ -28,6 +28,9 @@ class QuoteWasLoadedHandler {
         $channel = '/quotebot_quote_'.$raw_quote->getSlug();
         Log::debug("sending quote to channel $channel");
         $this->pusher_client->send($channel, $data);
+
+        // also send to the all channel
+        $this->pusher_client->send('/quotebot_quote_all', $data);
     }
 
     /**
