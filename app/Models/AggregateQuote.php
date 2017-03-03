@@ -38,7 +38,7 @@ class AggregateQuote extends BaseModel {
         if ($force_satoshis) {
             $is_satoshis = true;
         } else {
-            $is_usd = substr($this['pair'], 0, strpos($this['pair'], ':')) == 'USD';
+            $is_usd = in_array(substr($this['pair'], 0, strpos($this['pair'], ':')), ['USD','EUR']);
             $is_satoshis = !$is_usd;
         }
 
