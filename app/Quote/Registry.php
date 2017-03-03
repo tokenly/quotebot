@@ -20,8 +20,8 @@ class Registry
 
     public function allQuoteTypes() {
         return [
-            ['bitcoinAverage', ['USD:BTC'], ],
-            ['bitstamp'      , ['USD:BTC'], ],
+            ['bitcoinAverage', ['USD:BTC','EUR:BTC',], ],
+            ['bitstamp'      , ['USD:BTC','EUR:BTC',], ],
             ['poloniex'      , ['BTC:LTBC'], ['BTC:LTBCOIN'],],
             ['poloniex'      , ['BTC:FLDC'],],
             // ['poloniex'      , ['BTC:GEMZ'],],

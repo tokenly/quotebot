@@ -6,7 +6,7 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.1.*",
-		"tokenly/crypto-quote-client": "dev-master",
+		"tokenly/crypto-quote-client": "^0.1.0",
 		"tokenly/bitcoin-currency-lib": "dev-master",
 		"satooshi/php-coveralls": "~0",
 		"ramsey/uuid": "~2",
