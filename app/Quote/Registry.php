@@ -22,7 +22,7 @@ class Registry
         return [
             ['bitcoinAverage', ['USD:BTC','EUR:BTC',], ],
             ['bitstamp'      , ['USD:BTC','EUR:BTC',], ],
-            ['poloniex'      , ['BTC:LTBC'], ['BTC:LTBCOIN'],],
+            // ['poloniex'      , ['BTC:LTBC'], ['BTC:LTBCOIN'],],
             ['poloniex'      , ['BTC:FLDC'],],
             // ['poloniex'      , ['BTC:GEMZ'],],
             // ['poloniex'      , ['BTC:SWARM'],],
