@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f3f304336395d795c4bc97d7de74982",
+    "content-hash": "f1870b94c4b9381726dd03d80c2a038a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2407,16 +2407,16 @@
         },
         {
             "name": "tokenly/crypto-quote-client",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tokenly/crypto-quote-client.git",
-                "reference": "3a9991d5aa70a15cea04db340ca3c5f9d032d52f"
+                "reference": "4a99ad9920c76c70769851489e054a9c5a9c0782"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tokenly/crypto-quote-client/zipball/3a9991d5aa70a15cea04db340ca3c5f9d032d52f",
-                "reference": "3a9991d5aa70a15cea04db340ca3c5f9d032d52f",
+                "url": "https://api.github.com/repos/tokenly/crypto-quote-client/zipball/4a99ad9920c76c70769851489e054a9c5a9c0782",
+                "reference": "4a99ad9920c76c70769851489e054a9c5a9c0782",
                 "shasum": ""
             },
             "require": {
@@ -2445,7 +2445,7 @@
                 }
             ],
             "description": "A library for obtaining cryptocurrency quotes",
-            "time": "2017-03-03T22:01:02+00:00"
+            "time": "2017-07-25T13:57:42+00:00"
         },
         {
             "name": "tokenly/hmac-auth",
