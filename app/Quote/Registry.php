@@ -26,7 +26,7 @@ class Registry
             ['poloniex'      , ['BTC:FLDC'],],
             // ['poloniex'      , ['BTC:GEMZ'],],
             // ['poloniex'      , ['BTC:SWARM'],],
-            ['poloniex'      , ['BTC:SJCX'],],
+            // ['poloniex'      , ['BTC:SJCX'],],
             ['poloniex'      , ['BTC:XCP'],],
             ['poloniex'      , ['BTC:BCY'], ['BTC:BITCRYSTALS'],],
         ];
