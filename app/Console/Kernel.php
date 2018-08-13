@@ -37,7 +37,8 @@ class Kernel extends ConsoleKernel {
         // $schedule->command('quotebot:load poloniex       BTC:LTBC BTC:FLDC BTC:GEMZ BTC:SWARM BTC:SJCX BTC:XCP BTC:BCY')->cron($load_cron);
         // $schedule->command('quotebot:load poloniex       BTC:LTBC BTC:FLDC BTC:SWARM BTC:SJCX BTC:XCP BTC:BCY')->cron($load_cron);
         // $schedule->command('quotebot:load poloniex       BTC:FLDC BTC:SJCX BTC:XCP BTC:BCY')->cron($load_cron);
-        $schedule->command('quotebot:load poloniex       BTC:FLDC BTC:XCP BTC:BCY')->cron($load_cron);
+        // $schedule->command('quotebot:load poloniex       BTC:FLDC BTC:XCP BTC:BCY')->cron($load_cron);
+        $schedule->command('quotebot:load poloniex       BTC:XCP')->cron($load_cron);
 
         // 1 minute after the hour
         $aggregate_cron = '1 * * * *';
@@ -46,12 +47,12 @@ class Kernel extends ConsoleKernel {
         $schedule->command('quotebot:aggregate-quotes bitcoinAverage EUR BTC'  )->cron($aggregate_cron);
         $schedule->command('quotebot:aggregate-quotes bitstamp       EUR BTC'  )->cron($aggregate_cron);
         // $schedule->command('quotebot:aggregate-quotes poloniex       BTC LTBC' )->cron($aggregate_cron);
-        $schedule->command('quotebot:aggregate-quotes poloniex       BTC FLDC' )->cron($aggregate_cron);
+        // $schedule->command('quotebot:aggregate-quotes poloniex       BTC FLDC' )->cron($aggregate_cron);
         // $schedule->command('quotebot:aggregate-quotes poloniex       BTC GEMZ' )->cron($aggregate_cron);
         // $schedule->command('quotebot:aggregate-quotes poloniex       BTC SWARM')->cron($aggregate_cron);
         // $schedule->command('quotebot:aggregate-quotes poloniex       BTC SJCX' )->cron($aggregate_cron);
         $schedule->command('quotebot:aggregate-quotes poloniex       BTC XCP'  )->cron($aggregate_cron);
-        $schedule->command('quotebot:aggregate-quotes poloniex       BTC BCY'  )->cron($aggregate_cron);
+        // $schedule->command('quotebot:aggregate-quotes poloniex       BTC BCY'  )->cron($aggregate_cron);
     }
 
 }
