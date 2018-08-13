@@ -23,12 +23,12 @@ class Registry
             ['bitcoinAverage', ['USD:BTC','EUR:BTC',], ],
             ['bitstamp'      , ['USD:BTC','EUR:BTC',], ],
             // ['poloniex'      , ['BTC:LTBC'], ['BTC:LTBCOIN'],],
-            ['poloniex'      , ['BTC:FLDC'],],
+            // ['poloniex'      , ['BTC:FLDC'],],
             // ['poloniex'      , ['BTC:GEMZ'],],
             // ['poloniex'      , ['BTC:SWARM'],],
             // ['poloniex'      , ['BTC:SJCX'],],
             ['poloniex'      , ['BTC:XCP'],],
-            ['poloniex'      , ['BTC:BCY'], ['BTC:BITCRYSTALS'],],
+            // ['poloniex'      , ['BTC:BCY'], ['BTC:BITCRYSTALS'],],
         ];
     }
 
